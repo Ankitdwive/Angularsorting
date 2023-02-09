@@ -1,0 +1,69 @@
+.Recruitment-Summary-Report {
+    font-size: 15px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #192a56;
+    display:inline;
+    margin-left: 3px;
+  }
+  
+  
+  
+  .rbtnsb{
+    padding: 0px 0px 0px 30px;
+  }
+  
+  @media (min-width: 1024px) {
+   
+    .rbtnsb{
+        padding: 0px 0px 0px 0px;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    
+    .rbtnsb{
+        padding: 0px 0px 0px -0.5px;
+    }
+    .Path-8084 {
+      margin-right: -83px;
+    }
+   
+  }table, th, td {
+    border: 1px solid black;
+  }
+  .example-container {
+    height: auto;
+    overflow: auto;
+    scroll-behavior: auto;
+  }
+  th{
+    background-color: #192a56;
+  }
+  .and{
+    
+    width: auto;
+    
+      overflow-y: scroll;
+      
+          height: auto;
+        
+      
+        scrollbar-width: auto !important;
+   
+  }th ,td{
+    font-size: 15px; white-space: nowrap;
+  }
+  
+  table {
+    width: auto;
+   } .ak{
+        position:fixed;
+        margin-bottom: 25%;
+        margin-left: 55%;
+        border-color: brown;
+      }
+  

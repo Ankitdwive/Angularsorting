@@ -1,0 +1,27 @@
+.example-container {
+    height: 330px;
+    overflow: auto;
+  }
+  .akd {
+    
+    width: auto;
+    
+      overflow-y: scroll;
+      
+          height: 355px;
+        
+      
+        scrollbar-width: auto !important;
+   
+  }th ,td{
+    font-size: 15px; white-space: nowrap;
+  }
+  
+  table {
+    width: auto;
+   } .ak{
+        position:fixed;
+        margin-bottom: 25%;
+        margin-left: 55%;
+        border-color: brown;
+      }

@@ -1,0 +1,135 @@
+<div class="jumbotron" style="padding: 8px 15px;">
+<div class="form-row" style="margin-top:8px">
+    <div class="col-lg-2 col-md-2 col-sm-3">
+      <div class="crpt">
+        <h3 class="Recruitment-Summary-Report">Call Report</h3>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-3 rbtnsb">
+      <input class="form-check-input" id="byUser" name="reportType" type="radio" value="true" checked="checked"
+     ><span style="font-size: 12px;">By User</span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-3 rbtnsb">
+      <input class="form-check-input" id="byDate" name="reportType" type="radio" value="false"
+        ><span style="font-size: 12px;">By Date</span>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-3 rbtnsb">
+      <input class="form-check-input" id="byTeam" name="reportType" type="radio" value="true"
+       ><span style="font-size: 12px;">By Team</span>
+    </div>
+    <div class="col-lg-3 col-md-1 col-sm-3">
+      <!-- <button mat-stroked-button class="Path-8084" style="margin-right:2px">
+      <img src="assets/img/reports/calendar.svg" class="Group-14385">  Scheduled Report</button> -->
+      <button mat-stroked-button color="primary" class="Path-8084" [matMenuTriggerFor]="cjreports">
+        <img src="assets/img/reports/download.svg" class="Group-14385"> Download Report</button>
+      <mat-menu #cjreports="matMenu">
+        <button mat-menu-item >
+          <img style="width:28px;margin-left:-3px;" src="assets/img/tabs/file.svg" />Download CSV
+        </button>
+        <button mat-menu-item
+         >
+          <img style="width:28px;margin-left:-3px;" src="assets/img/tabs/file.svg" />Download Excel
+        </button>
+        <button mat-menu-item
+          >
+          <img style="width:28px;margin-left: -3px;" src="assets/img/tabs/file.svg" />Download XLS
+        </button>
+        <button mat-menu-item >
+          <img style="width: 28px;margin-left:-3px;" src="assets/img/tabs/file.svg" />Download TXT
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="Path-8331">
+    <div class="row" style="padding:10px 10px 8px;margin:0px">
+      <div class="col-lg-3 col-md-3 col-sm-12 prc1 empName">
+        <p class="placehold">Employees</p>
+        <mat-form-field style="width: 100%;font-size: 13px;">
+          <input matInput class="form-control search-slt" placeholder="" 
+             formControlName="employeeName" [matAutocomplete]="auto">
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+          <ng-container>
+            <mat-option  *ngFor="let user of da" [value]="user.name" >
+              <span> {{ user.name }} </span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
+      </div><div class="col-lg-2 col-md-2 col-sm-6 prc1">
+        <p class="placehold" for="startDate">Start Date <span style="color:red;">*</span></p><br>
+        <input matInput [matDatepicker]="picker" 
+         formControlName="startDate"id="startDate" autocomplete="off" (click)="picker.open()">
+        <mat-datepicker #picker></mat-datepicker>
+       
+      </div><div class="col-lg-2 col-md-2 col-sm-6 prc1">
+        <p class="placehold" for="startDat">End Date <span style="color:red;">*</span></p><br>
+        <input matInput [matDatepicker]="picke" 
+         formControlName="startDat"id="startDat" autocomplete="off" (click)="picke.open()">
+        <mat-datepicker #picke></mat-datepicker>
+       
+      </div>
+
+
+      <div class="col-lg-1 col-md-1 col-sm-6 prc1"><br>
+        <p class="placehold">&nbsp;</p>
+        <button type="button" class="btn btn-primary apply-btn">Apply</button>
+      </div>
+      <div class="col-lg-1 col-md-1 col-sm-6 prc1"><br>
+        <p class="placehold">&nbsp;</p>
+        <button type="button" class="btn reset-btn">Reset</button>
+      </div>
+</div></div>
+
+</div> 
+<section class="example-container mat-elevation-z8" tabindex="0">
+
+  <table mat-table matTableExporter [dataSource]="datasource" #exportDirective="matTableExporter" >
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="EmployeeName">
+      <th style="background-color: #ecf0f1;" mat-header-cell *matHeaderCellDef> Employee Name. </th>
+      <td mat-cell *matCellDef="let element"> {{element.EmployeeName}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Extension">
+      <th style="background-color: #ecf0f1;" mat-header-cell *matHeaderCellDef> Extension </th>
+      <td mat-cell *matCellDef="let element"> {{element.Extension}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Inbound">
+      <th style="background-color: #ecf0f1;" mat-header-cell *matHeaderCellDef> Inbound Calls </th>
+      <td mat-cell *matCellDef="let element"> {{element.Inbound}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Inboundd">
+      <th style="background-color: #ecf0f1;" mat-header-cell *matHeaderCellDef> Inbound Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.Inboundd}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Outboundt">
+      <th style="background-color: #ecf0f1;" mat-header-cell *matHeaderCellDef> Outbound Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.Outboundt}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Outbound">
+      <th style="background-color: #ecf0f1;" mat-header-cell *matHeaderCellDef> Outbound Calls </th>
+      <td mat-cell *matCellDef="let element"> {{element.Outbound}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Total">
+      <th style="background-color: #ecf0f1;" mat-header-cell *matHeaderCellDef> Total Calls</th>
+      <td mat-cell *matCellDef="let element"> {{element.Total}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Totalt">
+      <th style="background-color: #ecf0f1;" mat-header-cell *matHeaderCellDef> Total Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.Totalt}} </td>
+    </ng-container>
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayColumn; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColumn;"></tr>
+  </table>
+  
+  </section>    <mat-paginator [pageSizeOptions]="[8,10,20]" aria-label="select page of user" class="page"></mat-paginator>
+  
+  
